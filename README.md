@@ -1,2 +1,2 @@
 # gwh-octo
-this is a strat
+good good study
