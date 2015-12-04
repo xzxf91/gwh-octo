@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1,#div2,#div3{ width:100px; height:100px; background:red; position:absolute; top:0; left:200px; cursor:move;}
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2" style="left:200px; top:200px; background:black;"></div>
+<div id="div3" style="left:400px; top:300px; background:green;"></div>
+<script type="text/javascript" src="event.js"></script>
+<script type="text/javascript">
+    on(div1,type,down);
+    on(div2,type,down);
+    on(div3,type,down);
+    function down(e){
+
+    }
+</script>
+
+</body>
+</html>

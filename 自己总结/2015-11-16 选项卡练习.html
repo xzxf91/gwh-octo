@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .tabbedPanels{ width:550px; margin:20px auto;}
+        .tabbedPanels .tabGroup{ list-style:none; margin:0; padding:0; overflow:hidden; }
+        .tabbedPanels .tab{ padding:0; margin:0 0 0 10px; float:left; font-size:16px; background:#FC9; line-height:30px; height:30px; width:80px; text-align:center; -webkit-user-select:none; cursor:pointer; }
+        .tabbedPanels .contentGroup{ overflow:hidden; clear:both; }
+        .tabbedPanels .content{ width:530px; padding:10px;  height:350px; display:none;}
+
+        .tabbedPanels li.selectedTab{ background:#CCC; font-weight:bold; color:darkBlue;}
+        .tabbedPanels div.selectedContent{ display:block; background:#ccc;}
+    </style>
+</head>
+<body>
+<div class="tabbedPanels">
+    <ul class="tabGroup">
+        <li class="tab selectedTab">选项一 </li>
+        <li class="tab">选项二</li>
+        <li class="tab">选项三 </li>
+        <li class="tab">选项四</li>
+        <li class="tab">选项五 </li>
+
+    </ul>
+    <div class="contentGroup">
+        <div class="content selectedContent">
+            第一部分内容
+        </div>
+        <div class="content">
+            第二部分内容
+            <div>
+                <h3>珠峰培训课程</h3>
+                <ul>
+                    <li>JavaScript</li>
+                    <li>HTML5</li>
+                    <li>移动端</li>
+                    <li>Node.js</li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            第三部分内容
+        </div>
+        <div class="content">
+            第四部分内容
+        </div>
+        <div class="content">
+            第五部分内容
+        </div>
+    </div>
+
+</div>
+<!--  分隔线  -->
+<div class="tabbedPanels">
+    <ul class="tabGroup">
+        <li class="tab selectedTab">选项一 </li>
+        <li class="tab">选项二</li>
+        <li class="tab">选项三 </li>
+        <li class="tab">选项四</li>
+        <li class="tab">选项五 </li>
+
+    </ul>
+    <div class="contentGroup">
+        <div class="content selectedContent">
+            第一部分内容
+        </div>
+        <div class="content">
+            第二部分内容
+            <div>
+                <h3>珠峰培训课程</h3>
+                <ul>
+                    <li>JavaScript</li>
+                    <li>HTML5</li>
+                    <li>移动端</li>
+                    <li>Node.js</li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            第三部分内容
+        </div>
+        <div class="content">
+            第四部分内容
+        </div>
+        <div class="content">
+            第五部分内容
+        </div>
+    </div>
+
+</div>
+<!--  分隔线  -->
+<script type="text/javascript" src="DOM.js"></script>
+<script type="text/javascript">
+    //获取标签
+    //循环，给标签绑定点击事件changeTab(不要定义属性)
+    //changeTab方法自己获取当前被点中元素的索引 并用加上选中样式
+    // 让哥哥和弟弟元素去掉选中样式，只保留默认样式
+    //把所有的内容div的类样式恢复成默认样式
+    //最后把指定的（和选中的li相对应的）div的类样式设为选中的样式
+    var oLis = document.getElementsByClassName("tab");
+    for(var i=0; i<oLis.length; i++){
+        oLis.item(i).onclick=changeTab;
+    }
+    function changeTab(){
+        var index=DOM.getIndex2(this);
+        console.log(index);
+    }
+
+</script>
+</body>
+</html>

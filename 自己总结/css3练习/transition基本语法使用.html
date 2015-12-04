@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body, div {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .box{
+            float: left;
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            cursor: pointer;
+        }
+        .box:nth-child(even){
+            background:#FFCC66;
+        }
+        .box:nth-child(odd){
+            background: #0fb200;
+        }
+        .box:nth-child(1){
+            -webkit-transition: all 1s ease-in-out 0s;
+            transition:all 1s ease-in-out 0s;
+        }
+        .box:nth-child(1):hover{
+            width: 200px;
+            height: 200px;
+        }
+        .box:nth-child(2){
+            -webkit-transition: width .5s linear 0s;
+            transition:width .5s linear 0s;
+        }
+        .box:nth-child(2):hover{
+            width: 200px;
+            height: 200px;
+        }
+        .box:nth-child(3){
+            -webkit-transition: width 1s ease-in-out 0s, height 1s ease-in-out 1s , border-radius 1s ease-in-out 2s;
+            transition: width 1s ease-in-out 0s, height 1s ease-in-out 1s, border-radius 1s ease-in-out 2s;
+        }
+        .box:nth-child(3):hover{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+        .box:nth-child(4){
+            -webkit-transition: all .5s ease-in-out 0s;
+            transition:all .5s ease-in-out 0s;
+        }
+        .box:nth-child(4):hover{
+            -webkit-transition: all 1s ease-in-out 0s;
+            transition:all 1s ease-in-out 0s;
+            width: 200px;
+            height: 200px;
+            opacity: 0.1;
+            background: #ff3333;
+        }
+        .box:nth-child(5){
+            -webkit-transition: all .5s ease-in-out 0s;
+            transition:all .5s ease-in-out 0s;
+        }
+        @media all and (width: 640px){
+            .box:nth-child(5){
+                width: 50px;
+                height: 50px;
+            }
+        }
+        /*通过js来触发*/
+        .box:nth-child(6) {
+            -webkit-transition: all 1s ease-in-out 0s;
+            transition: all 1s ease-in-out 0s;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box" id="box6"></div>
+<script type="text/javascript">
+    var box6 = document.querySelector("#box6");
+    box6.onclick = function () {
+        if (this.style.width == "200px") {
+            this.style.width = "100px";
+            this.style.height = "100px";
+        } else {
+            this.style.width = "200px";
+            this.style.height = "200px";
+        }
+    }
+</script>
+</body>
+</html>

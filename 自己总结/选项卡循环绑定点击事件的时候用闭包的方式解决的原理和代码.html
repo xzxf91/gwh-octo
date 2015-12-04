@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body, div, ul, li {
+            margin: 0;
+            padding: 0;
+            font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+            font-size: 14px;
+            -webkit-user-select: none; /*在谷歌浏览器中禁止用户手动选中文字*/
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        #tab {
+            margin: 50px auto;
+            width: 500px;
+        }
+
+        #tab ul {
+            position: relative;
+            top: 1px;
+        }
+
+        #tab ul li {
+            float: left;
+            margin-right: 15px;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #31b0d5;
+            cursor: pointer;
+        }
+
+        #tab ul li.select {
+            background: #FFF38F;
+            border-bottom: 1px solid #FFF38F;
+        }
+
+        #tab div {
+            display: none;
+            clear: both;
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid #31b0d5;
+            background: #FFF38F;
+        }
+
+        #tab div.select {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="tab">
+    <ul>
+        <li class="select">综艺</li>
+        <li>电影</li>
+        <li>电视剧</li>
+    </ul>
+    <div class="select">中国好声音第四季-腾讯独家播放</div>
+    <div>小黄人广受大家好评</div>
+    <div>骨头、小骨、小不点</div>
+</div>
+<script type="text/javascript">
+    //2、自己创建一个不销毁的私有的作用域，把我们需要计数的变量定义为不销毁的私有变量实现累加效果
+    //-->研究选项卡循环绑定点击事件的时候用闭包的方式解决的原理和代码
+    //    oDiv.onclick = (function () {
+    //        var i = 0;
+    //        return function () {
+    //            this.innerHTML = ++i;
+    //        }
+    //    })();
+
+    //    ~function () {
+    //        var i = 0;
+    //        oDiv.onclick = function () {
+    //            this.innerHTML = ++i;
+    //        };
+    //    }();
+
+    var oTab=document.getElementById("tab");
+    var oLis=oTab.getElementsByTagName("li");
+    var oDiv=oTab.getElementsByTagName("div");
+    /*for(var i=0; i<oLis.length; i++){
+        oLis[i].zdy=i;
+        oLis[i].onclick=function(){
+            for(var j=0; j<oLis.length; j++){
+                oLis[j].className=oDiv[j].className="";
+            }
+            this.className=oDiv[this.zdy].className="select";
+        }
+    }*/
+    /*for(var i=0; i<oLis.length; i++){
+        ~function (i) {
+            oLis[i].onclick=function(){
+                for(var j=0; j<oLis.length; j++){
+                    oLis[j].className=oDiv[j].className="";
+                }
+                oLis[i].className=oDiv[i].className="select";
+            }
+        }(i);
+
+    }*/
+    for(var i=0; i<oLis.length; i++){
+        oLis[i].onclick=function (i) {
+            return function(){
+                for(var j=0; j<oLis.length; j++){
+                    oLis[j].className=oDiv[j].className="";
+                }
+                oLis[i].className=oDiv[i].className="select";
+            }
+        }(i);
+
+    }
+
+
+
+
+</script>
+</body>
+</html>

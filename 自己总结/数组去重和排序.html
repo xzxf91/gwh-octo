@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    var ary = [12, 23, 23, 12, 24, 34, 34, 23, 34, 5, 21, 2];
+
+    var newAry = ary.slice(0);//-->不改变原来的数据，那么我就克隆一份和原来一模一样的操作
+    var obj = {};
+    for (var i = 0; i < newAry.length; i++) {
+        var item = newAry[i];
+        if (obj[item] == item) {
+            newAry[i] = newAry[newAry.length - 1];
+            newAry.length--;
+            i--;
+            continue;
+        }
+        obj[item] = item;
+    }
+    obj = null;
+
+    var temp = null;
+    for (var i = 0; i < newAry.length - 1; i++) {
+        for (var j = 0; j < newAry.length - 1 - i; j++) {
+            if (newAry[j] < newAry[j + 1]) {
+                temp = newAry[j];
+                newAry[j] = newAry[j + 1];
+                newAry[j + 1] = temp;
+            }
+        }
+    }
+
+    console.log(newAry, ary);
+</script>
+</body>
+</html>

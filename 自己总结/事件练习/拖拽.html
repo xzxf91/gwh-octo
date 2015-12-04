@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1,#div2,#div3{ width:100px; height:100px; background:red; position:absolute; top:0; left:200px; cursor:move;}
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2" style="left:200px; top:200px; background:black;"></div>
+<div id="div3" style="left:400px; top:300px; background:green;"></div>
+<script type="text/javascript" src="event.js"></script>
+<script type="text/javascript">
+    var ele=document.getElementById("div1");
+    on(ele,"mousedown",down);
+    on(div2,"mousedown",down);
+    on(div3,"mousedown",down);
+    function down(e){
+        this.x = e.pageX||(e.clientX+(document.documentElement.scrollLeft||document.body.scrollLeft));
+        this.y = e.pageY||(e.clientX+(document.documentElement.scrollTop||document.body.scrollTop));
+        this.offL=this.offsetLeft;
+        this.offT=this.offsetTop;
+        //处理丢失鼠标
+        if(this.setCapture){//IE,ff
+            this.setCapture();
+            on(this,"mousemove",move);
+            on(this,"mouseup",up);
+        }else{//chrome浏览器,把给document绑定mousemove事件.只有文档这个大容器不会丢掉鼠标。
+            var that=this;
+            this.MOVE= function (e) { move.call(that,e);};
+            this.UP= function (e) { up.call(that,e);};
+            on(document,"mousemove",this.MOVE);
+            on(document,"mouseup",this.UP);
+        }
+
+    }
+    function move(e){
+
+        //计算盒子的新位置
+        this.style.left=this.offL+(e.pageX-this.x)+"px";
+        this.style.top=this.offT+(e.pageY-this.y)+"px";
+    }
+    function up(){
+        if(this.releaseCapture){
+            this.releaseCapture();
+            off(this,"mousemove",move);
+            off(this,"mouseup",up);
+        }else{
+            off(document,"mousemove",this.MOVE);
+            off(document,"mouseup",this.UP);
+
+        }
+    }
+</script>
+</body>
+</html>

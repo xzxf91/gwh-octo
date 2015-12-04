@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{ width:300px; height:300px; margin:100px auto; background:red; }
+        #div2{ width:300px; height:300px; margin:100px auto; background:red; position: relative }
+        #mask{ width:80px; height:80px; background:green; position:absolute;top: 0;left: 0;}
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<script type="text/javascript">
+
+    //案例1
+    /*var ele=document.getElementById("div2");
+
+    ele.onmouseenter=function(e){
+        e = e || window.event;
+        var oMask=document.createElement("div");
+        this.appendChild(oMask);
+        oMask.id="mask";
+        oMask.style.left=e.pageX||(e.clientX+(document.documentElement.scrollLeft||document.body.scrollLeft))-this.offsetLeft-oMask.offsetWidth/2+"px";
+        oMask.style.top= e.pageY||(e.clientX+(document.documentElement.scrollTop||document.body.scrollTop))-this.offsetTop-oMask.offsetHeight/2+"px";
+    };
+
+    ele.onmousemove = function (e) {
+        e = e || window.event;
+        var oMask=document.getElementById("mask");
+        if(oMask){
+            var le =e.pageX||(e.clientX+(document.documentElement.scrollLeft||document.body.scrollLeft));
+            var to = e.pageY||(e.clientX+(document.documentElement.scrollTop||document.body.scrollTop));
+
+            var l=le-this.offsetLeft-mask.offsetWidth/2;
+            var t=to-this.offsetTop-mask.offsetHeight/2;
+
+            if(l<=0){
+                oMask.style.left=0;
+            }else if(l>= this.offsetWidth-oMask.offsetWidth){
+                oMask.style.left=this.offsetWidth-oMask.offsetWidth+"px"
+            }else{
+                oMask.style.left=e.clientX-this.offsetLeft-oMask.offsetWidth/2+"px";
+            }
+            if(t<=0){
+                oMask.style.top=0;
+            }else if(t>= this.offsetHeight-oMask.offsetHeight){
+                oMask.style.top=this.offsetHeight-oMask.offsetHeight+"px"
+            }else{
+                oMask.style.top=e.clientY-this.offsetTop-oMask.offsetHeight/2+"px";
+            }
+        }
+    };
+    ele.onmouseleave =function(e){
+        e = e || window.event;
+        var oMask=document.getElementById("mask");
+        if(oMask){
+            this.removeChild(oMask);
+        }
+    }*/
+
+    //案例2
+    var ele=document.getElementById("div1");
+    ele.onmouseenter=function(e){
+        e = e || window.event;
+        var mask=document.getElementById("mask");
+        if(!mask){
+            mask = document.createElement("div");
+            mask.id="mask";
+            this.appendChild(mask);
+        }
+        mask.style.left= e.clientX + 20 +"px";
+        mask.style.top= e.clientY + 20 +"px";
+    };
+    ele.onmousemove= function (e) {
+        e = e || window.event;
+        var mask=document.getElementById("mask");
+        if(mask) {
+            mask.style.left = e.clientX + 20 + "px";
+            mask.style.top = e.clientY + 20 + "px";
+            console.log(e.clientX,mask.style.left);
+        }
+    };
+    ele.onmouseleave= function (e) {
+        e = e || window.event;
+        var mask=document.getElementById("mask");
+        if(mask){
+            this.removeChild(mask);
+        }
+    }
+</script>
+</body>
+</html>

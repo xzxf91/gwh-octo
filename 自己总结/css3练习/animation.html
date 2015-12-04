@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        .slider{
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .slider img{
+            width: 100%;
+            height: 100%;
+        }
+        .slider ul{
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            padding:0;
+            z-index: 7;
+            bottom:100px
+        }
+        .slider ul li{
+            display: inline-block;
+            width: 130px;
+            height: 130px;
+            margin:0 10px;
+        }
+        .slider ul li img{
+            border:10px solid #fff;
+            border-radius: 50%;
+            width: 110px;
+            height: 110px;
+        }
+        .bg{
+            position: fixed;
+            top:0;
+            left: 0;
+        }
+        .bg:target{
+            z-index: 5;
+        }
+        @-webkit-keyframes  slideLeft{
+            0%{
+                left: -500px;
+            }
+            100%{
+                left: 0;
+            }
+        }
+        .slideLeft:target{
+            -webkit-animation: slideLeft 1s 1;
+        }
+
+        @-webkit-keyframes  slideBottom{
+            0%{
+                left:350px;
+            }
+            100%{
+                left:0px;
+            }
+         }
+        .slideBottom:target{
+            -webkit-animation: slideBottom 1s 1;
+        }
+        @-webkit-keyframes  zoomIn{
+            0%{
+                -webkit-transform: scale(0.1);
+            }
+            100%{
+                -webkit-transform: scale(1);
+            }
+        }
+        .zoomIn:target{
+            -webkit-animation: zoomIn 1s 1;
+        }
+         @-webkit-keyframes  zoomOut{
+             0%{
+                 -webkit-transform: scale(2);
+             }
+             100%{
+                 -webkit-transform: scale(1);
+             }
+          }
+        .zoomOut:target{
+            -webkit-animation: zoomOut 1s 1;
+        }
+        @-webkit-keyframes rotate {
+            0%{
+                -webkit-transform: rotate(0deg) scale(0.1);
+            }
+            100%{
+                -webkit-transform: rotate(360deg) scale(1);
+            }
+        }
+        .rotate:target{
+            -webkit-animation:rotate 1s  1;
+        }
+
+    </style>
+</head>
+<body>
+<div class="slider">
+    <ul>
+        <li><a href="#bg1"><img src="img/sbg1.jpg"/></a></li>
+        <li><a href="#bg2"><img src="img/sbg2.jpg"/></a></li>
+        <li><a href="#bg3"><img src="img/sbg3.jpg"/></a></li>
+        <li><a href="#bg4"><img src="img/sbg4.jpg"/></a></li>
+        <li><a href="#bg5"><img src="img/sbg5.jpg"/></a></li>
+    </ul>
+    <img src="img/bg1.jpg" alt="" class="bg slideLeft" id="bg1"/>
+    <img src="img/bg2.jpg" alt="" class="bg slideBottom" id="bg2"/>
+    <img src="img/bg3.jpg" alt="" class="bg zoomIn" id="bg3"/>
+    <img src="img/bg4.jpg" alt="" class="bg zoomOut" id="bg4"/>
+    <img src="img/bg5.jpg" alt="" class="bg rotate" id="bg5"/>
+</div>
+</body>
+</html>

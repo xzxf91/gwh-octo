@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    function getRandom() {
+        var n = Number(arguments[0]), m = Number(arguments[1]);
+        //1、如果传递进来的n或者m有一个不是有效的数字，我们就返回[0-1)之间的随机小数
+        if (isNaN(n) || isNaN(m)) {
+            return Math.random();
+        }
+        //2、如果我们传递的值n比m都大了，让两者的值交换
+        if (n > m) {
+//            var temp = n;
+//            n = m;
+//            m = temp;
+            //在不使用第三个变量的情况下，如何实现交换?
+            n = n + m;
+            m = n - m;
+            n = n - m;
+        }
+        return Math.round(Math.random() * (m - n) + n);
+    }
+
+    //在不使用第三个变量的情况下，如何实现交换?
+    //    var a = 12;
+    //    var b = 13;
+    //    a = a + b;//把两个值放在一起 -->a=25
+    //    b = a - b;//在两个数的和的基础上把原来b的值减去，就是原来a的值，也是我们给b赋值的最新值 -->b=12
+    //    a = a - b;//在两个数和的基础上减去现有b的值，就是现有a的值 -->a=13
+</script>
+</body>
+</html>

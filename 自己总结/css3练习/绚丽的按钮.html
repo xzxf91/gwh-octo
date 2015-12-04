@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        .box, .boxTwo {
+            height: 84px;
+            margin-top: 20px;
+        }
+
+        .box li, .boxTwo li {
+            float: left;
+            margin: 10px;
+            width: 64px;
+            height: 64px;
+            cursor: pointer;
+        }
+
+        .box li img, .boxTwo li img{
+            -webkit-transition: all .5s ease-in-out 0s;
+            transition:all .5s ease-in-out 0s;
+        }
+
+        .box li img:hover{
+            -webkit-transform: scale(1.5) rotate(-360deg);/*scale缩放rotate旋转*/
+            transform: scale(1.5) rotate(-360deg);
+        }
+        .boxTwo li img:hover{
+            -webkit-transform: scale(0.5) rotate(-360deg);
+            transform: scale(0.5) rotate(-360deg);
+        }
+
+    </style>
+</head>
+<body>
+<ul class="box">
+    <li><img src="img/delicious.png"/></li>
+    <li><img src="img/facebook.png"/></li>
+    <li><img src="img/rss.png"/></li>
+    <li><img src="img/twitter.png"/></li>
+    <li><img src="img/yahoo.png"/></li>
+</ul>
+<ul class="boxTwo">
+    <li><img src="img/delicious.png"/></li>
+    <li><img src="img/facebook.png"/></li>
+    <li><img src="img/rss.png"/></li>
+    <li><img src="img/twitter.png"/></li>
+    <li><img src="img/yahoo.png"/></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,19 @@
+input {
+    /*css3中新增加的属性 IE6~8(IE更高的浏览器)下不兼容*/
+    border-radius: 5px;
+    /*box-shadow 盒子阴影 内阴影还是外阴影(写inset是内阴影 不写是外阴影)、x轴偏移量、y轴偏移量、阴影的模糊半径、阴影的扩展半径、阴影的颜色*/
+    box-shadow: 5px 5px 10px 0 #ccc;
+
+    /*gradient:css3中背景渐变色的属性 linear(线性) radial(径向)  如果在pc端使用我们需要分别的指定不同主流浏览器的前缀*/
+    background: -webkit-linear-gradient(left, #ffbc6c, #E0F2BE, #FFF38F);
+    background: -moz-linear-gradient(left, #ffbc6c, #E0F2BE, #FFF38F);
+    background: -ms-linear-gradient(left, #ffbc6c, #E0F2BE, #FFF38F);
+    background: -o-linear-gradient(left, #ffbc6c, #E0F2BE, #FFF38F);
+    background: linear-gradient(left, #ffbc6c, #E0F2BE, #FFF38F);
+
+
+    /*截取文字并且显示...*/
+    text-overflow: ellipsis; /*截取超出的部分用省略号代替*/
+    white-space: nowrap; /*强制不换行*/
+    overflow: hidden; /*溢出隐藏*/
+}

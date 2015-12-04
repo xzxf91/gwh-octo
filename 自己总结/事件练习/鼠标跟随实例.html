@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标跟随-jQuery</title>
+    <style type="text/css">
+        body, div, ul, li, img {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        img {
+            border: none;
+        }
+
+        .box {
+            position: relative;
+            margin: 50px auto;
+            width: 450px;
+            height: 75px;
+            background: #E0F2BE;
+        }
+
+        .box ul {
+            padding-left: 10px;
+            overflow: hidden;
+        }
+
+        .box ul li {
+            float: left;
+            margin-right: 10px;
+            width: 100px;
+            height: 75px;
+        }
+
+        .box ul li img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .box .mark {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 400px;
+            height: 300px;
+            border: 1px solid #008000;
+        }
+
+        .box .mark img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ul li{
+            list-style:none;
+            float:left;
+            display:inline;
+            margin-right:10px;
+            border:1px solid #AAAAAA;
+        }
+
+        /* tooltip */
+        #tooltip{
+            position:absolute;
+            border:1px solid #ccc;
+            background:#333;
+            padding:2px;
+            display:none;
+            color:#fff;
+
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <ul>
+        <li><img src="img/apple_1.jpg"/></li>
+        <li><img src="img/apple_2.jpg"/></li>
+        <li><img src="img/apple_3.jpg"/></li>
+        <li><img src="img/apple_4.jpg"/></li>
+    </ul>
+    <div class="mark" id="mark"><img src="img/apple_1_bigger.jpg"/></div>
+</div>
+
+
+<h3>有效果：</h3>
+<ul class="ul">
+    <li><a href="img/apple_1_bigger.jpg" class="tooltip" title="苹果 iPod"><img src="img/apple_1.jpg" alt="苹果 iPod" /></a></li>
+    <li><a href="img/apple_2_bigger.jpg" class="tooltip" title="苹果 iPod nano"><img src="img/apple_2.jpg" alt="苹果 iPod nano"/></a></li>
+    <li><a href="img/apple_3_bigger.jpg" class="tooltip" title="苹果 iPhone"><img src="img/apple_3.jpg" alt="苹果 iPhone"/></a></li>
+    <li><a href="img/apple_4_bigger.jpg" class="tooltip" title="苹果 Mac"><img src="img/apple_4.jpg" alt="苹果 Mac"/></a></li>
+</ul>
+
+
+<!--
+思考题:
+1、回去后把它改写成原生JS实现的效果
+2、http://bj.58.com/job/?utm_source=market&spm=b-31580022738699-me-f-824.bdpz_biaoti&PGTID=14484295855190.2487496822141111&ClickID=1&key=%252525E5%25252589%2525258D%252525E7%252525AB%252525AF%252525E5%252525BC%25252580%252525E5%2525258F%25252591
+  回去后研究人家的鼠标滑过出现详细信息的效果(永远可以看到全的详细的信息)
+-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+        $(document).ready(function () {
+            var $box = $("#box");
+            var $boxList = $box.find("li");
+            var $boxOffset = $box.offset();
+            var $mark = $("#mark");
+
+            $boxList.mouseover(function (e) {//jq隐性遍历
+                var l= e.clientX - $boxOffset.left +20;
+                var t= e.clientY - $boxOffset.top +20;
+                $mark.css({left:l,top:t}).stop().show(500);
+
+                var trueImg = $(this).children("img").attr("src");
+                trueImg = trueImg.replace(".jpg","_bigger.jpg");
+                $mark.children("img").attr("src",trueImg);
+            });
+
+            $boxList.mousemove(function (e) {
+                var l= e.clientX - $boxOffset.left + 20;
+                var t= e.clientY - $boxOffset.top + 20;
+                $mark.css({left:l,top:t});
+            });
+
+            $boxList.mouseout(function (e) {
+                $mark.stop().hide();
+            })
+        });
+
+
+
+//    $("a.tooltip").mouseover(function (e) {
+//        var src=this.href;
+//        this.tempTitle=this.title;
+//        this.title="";
+//        $("<div id='tooltip'><img src='"+src+"'></br>"+this.tempTitle+"</div>").appendTo(document.body).css({left: e.pageX+10,top: e.pageY+20}).show(500);
+//    }).mousemove(function (e) {
+//        $("#tooltip").css({left: e.pageX+10,top: e.pageY+10});
+//    }).mouseout(function (e) {
+//        $("#tooltip").remove();
+//        this.title=this.tempTitle;
+//    });
+
+</script>
+</body>
+</html>

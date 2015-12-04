@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    //求平均数
+    //先将arguments转化成数组，然后进行排序,掐头去尾
+
+//    function avgFn() {
+//        var ary = [].slice.call(arguments, 0);
+//        ary.sort (function (a, b) {
+//            return a - b;
+//        });
+//        ary.shift();
+//        ary.pop();
+//        return eval(ary.join("+")) / ary.length;
+//    }
+//
+
+
+    //    function avgFn() {
+    //        var ary = Array.prototype.slice.call(arguments, 0);
+    //        ary.sort(function (a, b) {
+    //            return a - b;
+    //        }).shift();
+    //        ary.length--;
+    //        return (eval(ary.join("+")) / ary.length).toFixed(2);
+    //    }
+
+
+//    function avgFn() {
+//        Array.prototype.sort.call(arguments, function (a, b) {
+//            return b - a;
+//        });
+//        Array.prototype.shift.call(arguments);
+//        Array.prototype.pop.call(arguments);
+//        var str = Array.prototype.join.call(arguments, "+");
+//        return (eval(str) / arguments.length).toFixed(2);
+//    }
+
+    function avgFn(){
+        var ary=[].slice.call(arguments,0);
+        ary.sort(function (a, b) {
+            return a-b;
+        }).shift();
+        ary.length--;
+        return (eval(ary.join("+"))/ary.length).toFixed(2);
+    }
+    var num1 = avgFn(97, 98, 99, 96, 69);
+    //    console.log(num1.toFixed(2));
+
+    function avgFn(){
+        var ary=[].slice.call(arguments,0);
+        ary.sort(function (a, b) {
+            return a-b;
+        }).shift();
+        ary.pop();
+        return (eval(ary.join("+"))/ary.length).toFixed(2);
+    }
+
+</script>
+</body>
+</html>
