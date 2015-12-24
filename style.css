@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#main {
+    width: 640px;
+    height: 960px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: -320px;
+    -webkit-transform-origin: top;
+}
+
+.slide li {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-size: 100% 50%;
+    overflow: hidden;
+}
+
+.slide li:nth-child(1) {
+    background: url(images/6.jpg) no-repeat;
+}
+
+.slide li:nth-child(2) {
+    background: url(images/2.jpg) no-repeat;
+}
+
+.slide li:nth-child(3) {
+    background: url(images/3.jpg) no-repeat;
+}
+
+.slide li:nth-child(4) {
+    background: url(images/4.jpg) no-repeat;
+}
+
+.zIndex {
+    z-index: 111;
+}
+
+.a1 p, .a2 p, .a3 p, .a4 p {
+    position: absolute;
+    width: 641px;
+}
+
+.a1 p:nth-child(1) {
+
+    height: 264px;
+    background: url("images/1-01.png") no-repeat 50% 50%;
+    margin-top: 5%;
+    -webkit-transform: translate(0, 0px);
+}
+
+.a1 p:nth-child(2) {
+    height: 353px;
+    background: url("images/1-02.png") no-repeat 50% 50%;
+    background-size: 80% 80%;
+    opacity: 1;
+    top: 50%;
+    margin-top: -176px;
+}
+
+.a1 p:nth-child(3) {
+    height: 216px;
+    background: url("images/1-03.png") no-repeat 50% 50%;
+    background-size: 90% 90%;
+    bottom: 0;
+}
+
+#a1 p:nth-child(1) {
+    -webkit-transition: 1s ease-in-out 0s;
+    -webkit-transform: translate(0, 20px);
+}
+
+/*#a1 p:nth-child(2) {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+    -webkit-transition: 1s;
+}*/
+
+#a1 p:nth-child(3) {
+    bottom: 10%;
+    -webkit-transition: 0.5s;
+}
+
+.a2 p:nth-child(1) {
+    height: 400px;
+    background: url("images/2-01.png") no-repeat 50% 50%;
+    top: -400px;
+}
+
+.a2 p:nth-child(2) {
+    height: 609px;
+    background: url("images/2-02.png") no-repeat 50% 50%;
+    background-size: cover;
+    bottom: 5%;
+}
+
+#a2 p:nth-child(1) {
+    top: 0;
+    -webkit-transition: 1.5s;
+}
+
+#a2 p:nth-child(2) {
+    -webkit-transform: rotateY(360deg);
+    -webkit-transition: 1s;
+}
+
+.a3 p:nth-child(1) {
+    height: 402px;
+    background: url("images/3-01.png") no-repeat 50% 50%;
+    -webkit-transform: translate(-640px, 0);
+    position: absolute;
+    top: 0;
+}
+
+.a3 p:nth-child(2) {
+    height: 607px;
+    background: url("images/3-02.png") no-repeat 50% 50%;
+    background-size: cover;
+    -webkit-transform: translate(640px, 0);
+    position: absolute;
+    top: 40%;
+}
+
+#a3 p {
+    -webkit-transform: translate(0, 0);
+    -webkit-transition: 1s;
+}
+
+#a3 p:nth-child(2){
+    -webkit-transform: translate(0, 0);
+}
+
+.a4 p:nth-child(1) {
+    height: 273px;
+    background: url("images/4-01.png") no-repeat;
+    -webkit-transform: translate(-640px, 0);
+    position: absolute;
+    top: 5%;
+}
+
+.a4 p:nth-child(2) {
+    height: 187px;
+    background: url("images/4-02.png") no-repeat;
+    -webkit-transform: translate(-640px, 0);
+    position: absolute;
+    top:40%
+}
+
+.a4 p:nth-child(3) {
+    height: 297px;
+    background: url("images/4-04.png") no-repeat;
+    bottom: -640px;
+}
+
+#a4 p:nth-child(1) {
+    -webkit-transform: translate(0, 0);
+    -webkit-transition: 1s;
+}
+
+#a4 p:nth-child(2) {
+    -webkit-transform: translate(0, 0);
+    -webkit-transition: 1s;
+}
+
+#a4 p:nth-child(3) {
+    bottom: -3%;
+    -webkit-transition: 0.5s;
+}
