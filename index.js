@@ -1,58 +1,53 @@
-var main = document.querySelector("#main");
-var oLis = document.querySelectorAll(".slide>li");
-var winW = document.documentElement.clientWidth;
+var main = document.querySelector('#main');
+var oLis = main.querySelectorAll('li');
 var winH = document.documentElement.clientHeight;
-var desW = 640;
-var desH = 960;
-//缩放页面适配各个移动设备
-main.style.webkitTransform = "scale(" + winH / desH + ")";
-
+var degW = 640;
+var degH = 960;
+main.style.webkitTransform = 'scale(' + winH / degH + ')';
 [].forEach.call(oLis, function () {
     arguments[0].index = arguments[1];
-    arguments[0].addEventListener("touchstart", start, false);
-    arguments[0].addEventListener('touchmove', move, false);
-    arguments[0].addEventListener('touchend', end, false);
+    arguments[0].addEventListener('touchstart', start);
+    arguments[0].addEventListener('touchmove', move);
+    arguments[0].addEventListener('touchend', end);
 });
 function start(e) {
-    this.start = e.changedTouches[0].pageY;
+    this.startY = e.changedTouches[0].pageY;
 }
 function move(e) {
-    e.preventDefault();
-    this.flag = true;
-    var moveTouch = e.changedTouches[0].pageY;
-    var changePos = moveTouch - this.start;
+    var changeY = e.changedTouches[0].pageY - this.startY;
     var cur = this.index;
+    this.flag=true;
 
     [].forEach.call(oLis, function () {
-        if (arguments[1] != cur) {
-            arguments[0].style.display = "none";
+        if (arguments[1] !== cur) {
+            arguments[0].style.display = 'none';
         }
-        arguments[0].className = "";
-        arguments[0].firstElementChild.id = "";
+        arguments[0].className='';
+        arguments[0].firstElementChild.id='';
     });
-    if (changePos > 0) {/*往下滑*/
-        var pos = -winH + changePos;
-        this.prevSIndex = cur == 0 ? oLis.length - 1 : cur - 1;
 
-    } else if (changePos < 0) {/*往上滑*/
-        this.prevSIndex = cur == oLis.length - 1 ? 0 : cur + 1;
-        pos = winH + changePos;
+    if (changeY > 0) {//向下
+        this.preSIndex = cur == 0 ? oLis.length - 1 : cur - 1;
+        var pos = -winH + changeY;
 
+    } else if (changeY < 0) {//向上
+        this.preSIndex = cur == oLis.length - 1 ? 0 : cur + 1;
+        var pos = winH + changeY;
     }
-    oLis[this.prevSIndex].style.webkitTransform = "translate(0," + pos + "px)";
-    oLis[this.prevSIndex].className = 'zIndex';
-    oLis[this.prevSIndex].style.display = "block";
+    oLis[this.preSIndex].style.webkitTransform = 'translate(0,' + pos + 'px)';
+    oLis[this.preSIndex].style.display='block';
+    oLis[this.preSIndex].className='zIndex';
 }
 function end(e) {
-    if (this.flag) {
-        oLis[this.prevSIndex].style.webkitTransform = "translate(0,0)";
-        oLis[this.prevSIndex].style.webkitTransition = "0.5s";
-        oLis[this.prevSIndex].addEventListener("webkitTransitionEnd", function () {
-            this.style.webkitTransition = "";
-            this.firstElementChild.id = "a" + (this.index + 1);
-        }, false)
+    if(this.flag){
+        oLis[this.preSIndex].style.webkitTransform="translate(0,0)";
+        oLis[this.preSIndex].style.webkitTransition='0.5s';
+        oLis[this.preSIndex].addEventListener('webkitTransitionEnd', function () {
+            this.style.webkitTransition='';
+            this.firstElementChild.id='a'+this.index;
+        })
     }
 }
 document.documentElement.addEventListener('touchmove', function () {
-
+    
 });

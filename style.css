@@ -13,70 +13,75 @@ html, body {
     overflow: hidden;
 }
 
+.zIndex {
+    z-index: 5;
+}
+
 #main {
+    position: absolute;
     width: 640px;
     height: 960px;
-    position: absolute;
-    left: 50%;
+    overflow: hidden;
     top: 0;
+    left: 50%;
     margin-left: -320px;
     -webkit-transform-origin: top;
 }
 
 .slide li {
-    width: 100%;
-    height: 100%;
     position: absolute;
-    left: 0;
     top: 0;
-    background-size: 100% 50%;
+    left: 0;
+    display: block;
+    width: 640px;
+    height: 960px;
     overflow: hidden;
 }
 
 .slide li:nth-child(1) {
-    background: url(images/6.jpg) no-repeat;
+    background: url("images/6.jpg") no-repeat;
 }
 
 .slide li:nth-child(2) {
-    background: url(images/2.jpg) no-repeat;
+    background: url("images/2.jpg") no-repeat;
 }
 
 .slide li:nth-child(3) {
-    background: url(images/4.jpg) no-repeat;
+    background: url("images/3.jpg") no-repeat;
 }
 
 .slide li:nth-child(4) {
-    background: url(images/3.jpg) no-repeat;
+    background: url("images/4.jpg") no-repeat;
 }
 
 .slide li:nth-child(5) {
-    background: url(images/7.jpg) no-repeat;
+    background: url("images/7.jpg") no-repeat;
 }
 
-.zIndex {
-    z-index: 111;
-}
-
-.a1 p, .a2 p, .a3 p, .a4 p {
+.a0 p, .a1 p, .a2 p, .a3 p {
     position: absolute;
-    width: 641px;
+    display: block;
+    width: 640px;
 }
 
-.a1 p:nth-child(1) {
+.a0 p:nth-child(1) {
+    background: url("images/1-01.png") no-repeat;
+    width: 312px;
     height: 264px;
-    background: url("images/1-01.png") no-repeat 50% 50%;
-    margin-top: 5%;
+    top: 5%;
+    left: 50%;
+    margin-left: -156px;
 }
 
-.a1 p:nth-child(2) {
-    height: 353px;
+.a0 p:nth-child(2) {
     background: url("images/1-02.png") no-repeat 50% 50%;
-    background-size: 80% 80%;
-    opacity: 1;
-    top: 50%;
-    margin-top: -176px;
-    -webkit-animation: scaleMove 2s infinite;
-    z-index: -1;
+    -webkit-background-size: 80% 80%;
+    background-size: 80% 80%;;
+    height: 356px;
+    top: 35%;
+    left: 50%;
+    margin-left: -320px;
+    -webkit-animation: scaleMove 2s infinite 3s ;
 }
 
 @-webkit-keyframes scaleMove {
@@ -88,128 +93,110 @@ html, body {
     }
 }
 
-.a1 p:nth-child(3) {
+.a0 p:nth-child(3) {
+    background: url("images/1-03.png") no-repeat;
     height: 216px;
-    background: url("images/1-03.png") no-repeat 50% 50%;
-    background-size: 90% 90%;
-    bottom: 0;
-}
-
-#a1 p:nth-child(1) {
-    -webkit-transition: 1s ease-in-out 0s;
-    -webkit-transform: translate(0, 0);
-}
-
-/*#a1 p:nth-child(2) {
-    opacity: 1;
-    -webkit-transform: translate(0, 0);
-    -webkit-transition: 1s;
-}*/
-
-#a1 p:nth-child(3) {
     bottom: 10%;
-    -webkit-transition: 0.5s;
+    left: 0;
 }
 
-.a2 p:nth-child(1) {
+#a0 p:nth-child(1) {
+    -webkit-transform: rotate(360deg);
+    -webkit-transition: 1s;
+}
+
+.a1 p:nth-child(1) {
     height: 400px;
     background: url("images/2-01.png") no-repeat 50% 50%;
     background-size: cover;
-    top: -400px;
+    top: -50%;
+    left: 50%;
+    margin-left: -320px;
 }
 
-.a2 p:nth-child(2) {
-    height: 529px;
+.a1 p:nth-child(2) {
+    height: 526px;
     background: url("images/2-02.png") no-repeat 50% 50%;
-    background-size: cover;
+    -webkit-transform: translate(-500, 0);
     bottom: 5%;
 }
 
-#a2 p:nth-child(1) {
-    top: 0;
-    -webkit-transition: 1.5s;
+#a1 p:nth-child(1) {
+    top: 5%;
+    -webkit-transition: 1s;
 }
 
-#a2 p:nth-child(2) {
+#a1 p:nth-child(2) {
     -webkit-transform: rotateY(360deg);
     -webkit-transition: 1s;
 }
 
-.a3 p:nth-child(1) {
+.a2 p:nth-child(1) {
     height: 402px;
-    background: url("images/3-01.png") no-repeat;
-    background-size: cover;
-    -webkit-transform: translate(-640px, 0);
-    position: absolute;
+    background: url("images/3-01.png") no-repeat 50% 50%;
     top: 0;
+    -webkit-transform: translate(-640px,0);
 }
-
-.a3 p:nth-child(2) {
+.a2 p:nth-child(2){
     height: 607px;
-    background: url("images/3-02.png") no-repeat;
-    background-size: cover;
-    -webkit-transform: translate(640px, 0);
-    position: absolute;
-    top: 40%;
+    background: url("images/3-02.png") no-repeat 50% 50%;
+    bottom: 0;
+    -webkit-transform: translate(640px,0);
 }
-
-#a3 p {
-    -webkit-transform: translate(0, 0);
+#a2 p:nth-child(1),#a2 p:nth-child(2){
+    -webkit-transform: translate(0,0);
     -webkit-transition: 1s;
 }
-
-#a3 p:nth-child(2) {
-    -webkit-transform: translate(0, 0);
-}
-
-.a4 p:nth-child(1) {
+.a3 p:nth-child(1){
     height: 273px;
-    background: url("images/4-01.png") no-repeat;
-    -webkit-transform: translate(-640px, 0);
-    position: absolute;
-    top: 0%;
+    background: url("images/4-01.png") no-repeat 50% 50%;
+    top: 0;
+    left: -640px;
 }
-
-.a4 p:nth-child(2) {
+.a3 p:nth-child(2){
     height: 220px;
-    background: url("images/4-02.png") no-repeat;
-    -webkit-transform: translate(-640px, 0);
-    position: absolute;
-    top: 30%
-}
+    background: url("images/4-02.png") no-repeat 50% 50%;
+    top: 30%;
+    left: -640px;
 
-.a4 p:nth-child(3) {
-    height: 297px;
-    background: url("images/4-04.png") no-repeat;
-    bottom: -640px;
 }
+.a3 p:nth-child(3){
+    height: 283px;
+    background: url("images/4-04.png") no-repeat 50% 50%;
+    bottom: -500px;
 
-#a4 p:nth-child(1) {
-    -webkit-transform: translate(0, 0);
-    -webkit-transition: 1s;
 }
-
-#a4 p:nth-child(2) {
-    -webkit-transform: translate(0, 0);
-    -webkit-transition: 1s;
-}
-
-#a4 p:nth-child(3) {
-    bottom: -3%;
+#a3 p:nth-child(1){
+    top: 0;
+    left: 0;
     -webkit-transition: 0.5s;
 }
+#a3 p:nth-child(2){
+    top: 30%;
+    left: 0;
+    -webkit-transition: 1s;
 
-.a5 p {
-    position: absolute;
-    width: 302px;
-    height: 302px;
-    background: url("images/wx.jpg") no-repeat;
-    top: -500px;
-    left: 50%;
-    margin-left: -151px;
 }
-
-#a5 p {
-    top: 7%;
+#a3 p:nth-child(3){
+    bottom: 0;
+    -webkit-transition: 0.5s;
+}
+.a4 p{
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: url("images/wx.jpg") no-repeat 50% 50%;
+    top: 5%;
+    left: -640px;
+    margin-left: -160px;
+}
+#a4 p{
+    left: 50%;
     -webkit-transition: 1s;
 }
+/*
+transition能用animition就不用transition
+  transition 帧动画，一帧一帧的动，耗性能
+  animition 模拟动画
+  */
+
